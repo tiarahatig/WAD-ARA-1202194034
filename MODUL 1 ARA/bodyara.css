@@ -1,0 +1,17 @@
+body,
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+.content-container{
+    padding: 60px;
+    background-color: #efe9f1 ;
+}
+
+.paddingtop{
+    margin-top:5vh;
+}
+
+p {
+    auto|inter-word|inter-character|none|initial|inherit;
+}
