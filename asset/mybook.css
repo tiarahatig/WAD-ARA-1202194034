@@ -1,0 +1,20 @@
+body,
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    background-color: rgb(241, 217, 241);
+}
+
+.container-fluid{
+    padding: 70px 150px 10px 150px;
+}
+
+table{
+    background-color: rgb(231, 184, 184);
+}
+
+table thead{
+    background-color: rgb(225, 245, 232);
+}
