@@ -106,7 +106,7 @@
                                 <?=$displayService?>
                             </ul>
                         </td>
-                        <td>$<?= $totPrice?></td>
+                        <td>$<?= $tottPrice?></td>
                     </tr>
                 </tbody>
             </table>

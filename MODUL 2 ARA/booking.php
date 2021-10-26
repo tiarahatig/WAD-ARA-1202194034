@@ -136,7 +136,7 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-block" value="Book"></input>
+                        <input type="reset" class="btn btn-primary btn-block" value="Book"></input>
                     </div>
                 </form>
             </div>

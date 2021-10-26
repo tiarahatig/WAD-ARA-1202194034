@@ -39,7 +39,7 @@
           "2.png", 
           "3.png"
         ];
-        ?>
+        
 
 <!--isi-->
 <div class="content-container">
