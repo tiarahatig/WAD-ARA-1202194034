@@ -13,7 +13,7 @@
 
 <body>
 
-        <!-- HEADER NAVBAR -->
+        <!-- NAVBAR -->
         <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <nav class="d-flex flex-wrap justify-content-between align-items-center w-100">
             <div class="col-md-4 d-flex align-items-start px-2">
@@ -71,12 +71,12 @@
                     <div class= "form-group mb-4">
                     <label class="bold" for="title"><b>Bahasa</b></label>
                     <div class="form-check form-check-inline">
-                                    <input class="form-check-inline" type="radio" value="Online" name="bahasa"
+                                    <input class="form-check-inline" type="radio" value="Indonesia" name="bahasa"
                                         >
                                     Bahasa Indonesia
                                 </div>
                                 <div class="rform-check form-check-inline">
-                                    <input class="form-check-inline" type="radio" value="Offline" name="bahasa"
+                                    <input class="form-check-inline" type="radio" value="Lainnya" name="bahasa"
                                         >
                                     Lainnya
                                 </div>
@@ -134,7 +134,7 @@
             Ara_1202194034
         </div>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -142,7 +142,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script> 
+    </script>  -->
 </body>
 
 </html>
