@@ -29,7 +29,7 @@
 
     <!-- PHP Section -->
     <?php
-        require 'db_connector.php'; //debug
+        require 'db_connector.php';
         $submit_selected = isset($_POST["submit_form"]);
         $delete_selected = isset($_POST["del_event"]);
         $edit_selected = isset($_POST["save_edit"]);
@@ -50,7 +50,7 @@
         }
 
         $res_row = query("SELECT * FROM Buku_table");
-        // echo $res_row;
+        echo $res_row;
         $content_hm = '';
         
         if(empty($res_row)){
@@ -69,10 +69,9 @@
                     <br>
                     <h3 class="fw-bold">'.$row['judul_buku'].'</h3>
                     <p class="card-text">'.$row['deskripsi'].'</p>
-                    <a type="button" href=detail.php?id_buku='.$row['id'].'" class="btn btn-primary">Tampilkan Lebih Lanjut</a>
+                    <a type="button" href="Ara_DetailBuku.php?id='.$row['id'].'" class="btn btn-primary">Tampilkan Lebih Lanjut</a>
                 </div>
-                </div>
-                ';
+                </div>';
             }
         }
     ?>
@@ -92,7 +91,7 @@
             Ara_1202194034
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -100,6 +99,6 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
+    </script> -->
 </body>
 </html>
