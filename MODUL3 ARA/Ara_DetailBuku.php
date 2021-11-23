@@ -28,7 +28,7 @@
     </div>
 
 
-    <!-- PHP section -->
+    <!-- PHP-->
     <?php
         require 'db_connector.php';
         session_start();
@@ -45,7 +45,7 @@
         
         <div class="m-auto shadow p-3 mb-5 bg-body rounded w-75 mt-5 p-5">
         <h4 class="text-center">Detail Buku</h4>
-            <img src="assets/"<?= $row['gambar']?> alt="...">
+            <img src="assets/<?= $row['gambar']?>" alt="...">
 
             <hr style="height:7px; background-color:blue">
             <br>
@@ -62,12 +62,137 @@
             <h5>Tags : </h5>
             <p><?= $row['tag']?></p>
 
-            <div class="modal-footer p-2 pb-5 border-bottom-0" style="width: 100% ;margin: 0px auto; border-style: none; justify-content: center;">
-                <button type="button" class="btn btn-primary" style="width: 40% ;max-width: 500px;" data-bs-toggle="modal" data-bs-target="#sunting">Edit</button>
-                <button type="button" class="btn btn-danger" style="width: 40% ;max-width: 500px;" data-bs-toggle="modal" data-bs-target="#hapus">Delete</button>
-            </div>
-        </div>
+            <div class="card-footer text-center">
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <input type="submit" class="btn btn-primary" name="edit_event" value="Edit"
+                                data-toggle="modal" data-target="#edit_data_modal" style="width:10em;">
+                        </div>
+
+                        <div class="col-md-6 text-left">
+                            <form action="Ara_Home.php" method="post" onsubmit="return confirm('Delete?');">
+                                <input type="submit" class="btn btn-danger" name="del_event" value="Delete"
+                                    style="width:10em;">
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
     </div>
 
+     <!-- Edit event -->
+     <div class="modal" id="edit_data_modal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Detail Buku</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="Ara_Home.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="row justify-content-center align-content-center">
+
+                        <!-- edit form-->
+                        <div class="container">
+            <div class="content-page">
+                <h4 class="bold text-center">Edit Data Buku</h4>
+                <form action="Ara_Home.php" method="post" enctype="multipart/form-data">
+                    <div class= "form-group mb-4">
+                        <label class="bold" for="title">Judul Buku</label>
+                        <input type="text" class="form-control mt-2" name="Judul_buku" value="<?= $row['judul_buku']?>">
+                    </div>
+
+                    <div class= "form-group mb-4">
+                        <label class="bold" for="title">Penulis</label>
+                        <input type="text" class="form-control mt-2" name="Penulis_buku" 
+                                aria-describedby="titleHelp" placeholder="Ara_1202194034" value="Ara_1202194034" 
+                                readonly autocomplete="off">
+                    </div>
+
+                    <div class= "form-group mb-4">
+                        <label class="bold" for="title">Tahun Terbit</label>
+                        <input type="text" class="form-control mt-2" name="Tahun_terbit" 
+                                aria-describedby="titleHelp" value="<?= $row['tahun_terbit']?>"> 
+                    </div>
+
+                    <div class= "form-group mb-4">
+                    <label class="bold" for="title">Deskripsi</label>
+                    <textarea class="form-control" name="deskripsi" rows="7" ><?= $row['deskripsi']?></textarea>
+                    </div>
+
+                    <div class= "form-group mb-4">
+                    <label class="bold" for="title">Bahasa</label>
+                    <div class="form-check form-check-inline">
+                                    <input class="form-check-inline" type="radio" value="Indonesia" name="bahasa"
+                                    <?php if ($row['bahasa'] === 'Indonesia') { echo 'checked="checked"'; } ?>>
+                                        <label class="form-check-label">Indonesia</label>
+                                </div>
+                                <div class="rform-check form-check-inline">
+                                    <input class="form-check-inline" type="radio" value="Lainnya" name="bahasa"
+                                    <?php if ($row['bahasa'] === 'Lainnya') { echo 'checked="checked"'; } ?>>
+                                        <label class="form-check-label">Lainnya</label>
+                                </div>
+                    </div>
+
+                    <div class= "form-group mb-4">
+                    <label class="bold" for="title">Tag</label>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Pemrograman" name="tag[]"
+                    <?php if (strpos($detail['tag'],'Pemrograman') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">Pemrograman</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Website" name="tag[]"
+                    <?php if (strpos($detail['tag'],'Pemrograman') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">Website</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Java" name="tag[]"
+                    <?php if (strpos($detail['tag'],'Java') !== false) { echo 'checked'; }?>>
+                    <label class="form-check-label" for="inlineCheckbox1">Java</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="OOP" name="tag[]"
+                    <?php if (strpos($detail['tag'],'OOP') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">OOP</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="MVC" name="tag[]"
+                    <?php if (strpos($detail['tag'],'MVC') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">MVC</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="Kalkulus" name="tag[]"
+                    <?php if (strpos($detail['tag'],'Kalkulus') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">Kalkulus</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="Lainnya" name="tag[]"
+                    <?php if (strpos($detail['tag'],'Lainnya') !== false) { echo 'checked'; } ?>>
+                    <label class="form-check-label" for="inlineCheckbox1">Lainnya</label>
+                    </div>
+
+                    <div class= "form-group mb-4">
+                    <label class="bold" for="title">Gambar</label>
+                    <input type="file" class="form-control" name="gambar" 
+                                    accept="iimage/png, image/jpeg, image/jpg">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-danger" value="Cancel" data-dismiss="modal"></input>
+                        <input type="submit" name="update" class="btn btn-primary" value="Save Changes" ></input>
+                    </div>
+                </form>
+
+<!-- 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script> -->
     </body>
