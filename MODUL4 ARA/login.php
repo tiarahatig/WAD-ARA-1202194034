@@ -15,7 +15,7 @@ if(isset($_COOKIE["username"])) {
 }
 
 $message = "";
-if (isset($_POST["login"])) {
+if (isset($_POST["Iogin"])) {
     $email = $_POST["email"];
     $sandi = $_POST["pass"];
     if(isset($_POST["remember_me"])) {
